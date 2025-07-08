@@ -7,6 +7,7 @@ import type {
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
 import {ProductItem} from '~/components/ProductItem';
+import {Hero} from '~/components/Hero';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -60,6 +61,15 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <Hero
+        title="Welcome to Our Store"
+        subtitle="New Collection"
+        description="Discover our latest collection of premium products designed to elevate your style."
+        ctaText="Shop Collection"
+        ctaLink="/collections/all"
+        backgroundImage="https://cdn.shopify.com/s/files/1/0688/1755/1382/files/hero-bg.jpg"
+        textAlign="center"
+      />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
